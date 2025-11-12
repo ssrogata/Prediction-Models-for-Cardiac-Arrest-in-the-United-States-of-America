@@ -77,21 +77,22 @@ library(fst)
 library(dplyr)
 
 # 
-files <- list.files("split_fst", pattern = "data_train_.*\\.fst$", full.names = TRUE)
+files <- list.files("./input/split_fst", pattern = "data_train_.*\\.fst$", full.names = TRUE)
 files <- sort(files)  
 #
 merged_data <- lapply(files, read_fst) %>% bind_rows()
 #
-write_fst(merged_data, "data_train_for_prediction_model_scaled.fst")
+write_fst(merged_data, "./input/data_train_for_prediction_model_scaled.fst")
 
 
 #------　Merge demo datasets for the testing dataset
-files <- list.files("split_fst", pattern = "data_test_.*\\.fst$", full.names = TRUE)
+files <- list.files("./input/split_fst", pattern = "data_test_.*\\.fst$", full.names = TRUE)
 files <- sort(files) 
 #
 merged_data <- lapply(files, read_fst) %>% bind_rows()
 #
-write_fst(merged_data, "data_test_for_prediction_model_scaled.fst")
+write_fst(merged_data, "./input/data_test_for_prediction_model_scaled.fst")
+
 
 #------　Run the programs to develop and assess prediction models
 source("./R_master_program.r")
