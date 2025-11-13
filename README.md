@@ -81,6 +81,8 @@ files <- list.files("./input/split_fst", pattern = "data_train_.*\\.fst$", full.
 files <- sort(files)  
 #
 merged_data <- lapply(files, read_fst) %>% bind_rows()
+merged_data <- as.data.table(merged_data)
+setnames(merged_data, "Holiday_all", "Holiday_all_imp")
 #
 write_fst(merged_data, "./input/data_train_for_prediction_model_scaled.fst")
 
@@ -90,6 +92,8 @@ files <- list.files("./input/split_fst", pattern = "data_test_.*\\.fst$", full.n
 files <- sort(files) 
 #
 merged_data <- lapply(files, read_fst) %>% bind_rows()
+merged_data <- as.data.table(merged_data)
+setnames(merged_data, "Holiday_all", "Holiday_all_imp")
 #
 write_fst(merged_data, "./input/data_test_for_prediction_model_scaled.fst")
 
