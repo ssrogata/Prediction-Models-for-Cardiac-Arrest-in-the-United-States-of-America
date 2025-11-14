@@ -69,7 +69,7 @@ Please install R version 4.2.3 from the [CRAN website](https://cran.r-project.or
 
 The demo dataset was designed to mimic the preprocessed data used in the actual analysis, representing the data after scaling and other preprocessing steps were completed but before model training.
 
-Then, run the following script in R to execute the main programs for developing and testing the prediction models described in the paper:
+First, you need to specify your home directory in the program named "./R_master_program.r". Then, run the following script in R to execute the main programs for developing and testing the prediction models described in the paper:
 
 ```r
 #------　Merge demo datasets for the training datasets
